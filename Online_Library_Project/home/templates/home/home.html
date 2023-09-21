@@ -1,0 +1,27 @@
+<!-- home/templates/home/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Library - Home</title>
+</head>
+<body>
+    <h1>Welcome to the Online Library</h1>
+    <h2>Top 10 Most Viewed Books</h2>
+    <div class="book-list">
+        {% for book in top_books %}
+        <div class="book-card">
+            <img src="{{ book.cover_image.url }}" alt="{{ book.title }} Cover">
+            <div class="book-details">
+                <h3>{{ book.title }}</h3>
+                <p>Author: {{ book.author }}</p>
+                <p>{{ book.summary }}</p>
+                <p>Genres: {{ book.genres.all|join:", " }}</p>
+                <p>Star Rating: {{ book.star_rating }}/5</p>
+                <a href="{% url 'add_to_cart' book.id %}" class="add-to-cart">Add to Cart</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

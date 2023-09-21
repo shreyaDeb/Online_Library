@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Chapters</title>
+</head>
+<body>
+    <h1>Add Chapters</h1>
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <!-- Add chapter name -->
+        <label for="chapter_name">Chapter Name:</label>
+        <input type="text" id="chapter_name" name="chapter_name" required>
+        
+        <!-- Chapter content -->
+        <label for="chapter_content">Chapter Content:</label>
+        <textarea id="chapter_content" name="chapter_content" rows="10" required></textarea>
+        
+        <!-- Save button -->
+        <button type="submit">Save Chapter</button>
+    </form>
+</body>
+</html>

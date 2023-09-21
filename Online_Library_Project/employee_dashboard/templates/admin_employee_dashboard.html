@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Employee Dashboard</title>
+</head>
+<body>
+    <h1>Admin Employee Dashboard</h1>
+    <h2>Book Requests</h2>
+    <ul>
+        {% for request in book_requests %}
+        <li>{{ request.title }} by {{ request.author }} (Genre: {{ request.genre }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

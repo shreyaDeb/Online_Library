@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}</h1>
+    <h2>Currently Renting</h2>
+    <ul>
+        {% for rental in rented_books %}
+        <li>{{ rental.book.title }} (Due: {{ rental.due_date|date:"F d, Y" }})</li>
+        {% endfor %}
+    </ul>
+    <h2>Past Rentals</h2>
+    <ul>
+        {% for rental in past_rentals %}
+        <li>{{ rental.book.title }} (Returned on: {{ rental.returned_date|date:"F d, Y" }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

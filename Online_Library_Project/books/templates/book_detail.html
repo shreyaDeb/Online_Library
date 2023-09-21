@@ -1,0 +1,23 @@
+<!-- books/templates/books/book_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ book.title }}</title>
+</head>
+<body>
+    <h1>{{ book.title }}</h1>
+    <img src="{{ book.cover_image.url }}" alt="{{ book.title }} Cover">
+    <p>Author: {{ book.author }}</p>
+    <p>Summary: {{ book.summary }}</p>
+    <p>Genres: {{ book.genres.all|join:", " }}</p>
+    <p>Star Rating: {{ book.star_rating }}/5</p>
+    {% if user.is_authenticated %}
+        {% if in_cart %}
+            <p>This book is in your cart.</p>
+        {% else %}
+            <a href="{% url 'add_to_cart' book.id %}" class="add-to-cart">Add to Cart</a>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
