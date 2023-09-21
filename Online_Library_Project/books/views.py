@@ -4,6 +4,8 @@ from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
 from .models import Book
 from cart.models import CartItem
+from rest_framework import generics
+from .serializers import BookSerializer
 
 def book_detail(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
@@ -12,3 +14,8 @@ def book_detail(request, book_id):
     
     context = {'book': book, 'in_cart': in_cart}
     return render(request, 'books/book_detail.html', context)
+
+class BookList(generics.ListCreateAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+
