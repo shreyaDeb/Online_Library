@@ -2,17 +2,73 @@
 
 ## How to Run the API?
 
-1. Install pip which is a reference python package manager:
+1. Install pip on your machine:
+
+   For macOS/Unix:
+   ```
+   python3 -m pip install --user --upgrade pip
+   ```
+   For Window: _The Python installers for Windows include pip_
    
-   `python3 -m venv env`
+3. Install the virtual environment in a directory you want to, first cd into the directory you want it to be in and then:
+   
+   For macOS/Unix:
+   ```
+   python3 -m pip install --user virtualenv
+   ```
+   For Windows:
+   ```
+   python -m pip install --user virtualenv
+   ```
 
-2. Now go into your virtuall environmnet:
+4. Create a Virtual Environment:
 
-   `source /path to you env/bin/activate`
+   For macOS/Unix:
+   ```
+   python3 -m venv name_you_want_to_give_your_virtual_environment
+   ```
+   For Windows:
+   ```
+   python -m venv name_you_want_to_give_your_virtual_environment
+   ```
+5. Activate your Virtual Environment:
 
-3. Now install pip into this virtual environment
+   For macOS/Unix:
 
+   ```
+   source env/bin/activate
+   ```
+   For Windows:
 
+   ```
+   .\env\Scripts\activate
+   ```
+
+6. Now install Django into your virtual environment: _It doesn't matter if you're on a Windows/Unix/MacOS since in a virtual environment many aspects of the development environment, such as package management and isolated dependencies, are controlled by the virtual environment itself. This isolation is designed to ensure that your project's dependencies don't interfere with the system-wide Python environment_
+
+   ```
+   pip install Django
+   ```
+
+7. Clone this repository in your virtual environment and then cd into the project Online_Library and then into the Online_Library_Project:
+
+   ```
+   git clone https://github.com/shreyaDeb/Online_Library.git
+   ```
+   ```
+   cd Online_Library
+   ```
+   ```
+   cd Online_Library_Project
+   ```
+
+8. Now run the project:
+   ```
+   python manage.py runserver
+   ```
+
+9. Now click the link that is shown in the terminal which will redirect you to a web browser with the same link.
+   
 ### Home app: 
 
 you can see a carousel of cards of the top 10 most viewed books, the books, with an image on the left and then a short text on the right, like a card. This should be visible on the website. This will be the home page.
