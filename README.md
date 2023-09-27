@@ -68,6 +68,8 @@
    ```
 
 9. Now click the link that is shown in the terminal which will redirect you to a web browser with the same link.
+
+## What Does Each App Do?
    
 ### Home app: 
 
