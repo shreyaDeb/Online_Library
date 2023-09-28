@@ -1,9 +1,9 @@
-from django.db import models
+from datetime import datetime, timedelta
 
 # Create your models here.
-from django.db import models
 from django.contrib.auth.models import User
-from datetime import datetime, timedelta
+from django.db import models
+
 
 class Book(models.Model):
     title = models.CharField(max_length=255)
@@ -17,15 +17,18 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+
 class BookRental(models.Model):
-    book = models.ForeignKey('books.Book', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='book_rentals')
+    book = models.ForeignKey("books.Book", on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="book_rentals"
+    )
     # Other fields for BookRental
     rental_date = models.DateTimeField(default=datetime.now)
     due_date = models.DateTimeField()
     returned = models.BooleanField(default=False)
     extended = models.BooleanField(default=False)
-    
+
     def __str__(self):
         return f"{self.user.username} - {self.book.title}"
 

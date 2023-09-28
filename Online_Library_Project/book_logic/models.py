@@ -1,18 +1,21 @@
-from django.db import models
-from books_list.models import Book
-from django.contrib.auth.models import User
 from datetime import datetime, timedelta
-from books.models import Book
+
+from django.contrib.auth.models import User
+from django.db import models
 
 
 class BookRental(models.Model):
-    book = models.ForeignKey('books.Book', on_delete=models.CASCADE, related_name='rentals')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='book_logic_rentals')
+    book = models.ForeignKey(
+        "books.Book", on_delete=models.CASCADE, related_name="rentals"
+    )
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="book_logic_rentals"
+    )
     rental_date = models.DateTimeField(default=datetime.now)
     due_date = models.DateTimeField()
     returned = models.BooleanField(default=False)
     extended = models.BooleanField(default=False)
-    
+
     def __str__(self):
         return f"{self.user.username} - {self.book.title}"
 
