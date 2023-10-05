@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "home",
     "login_app",
     "users",
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,10 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+SPECTACULAR_SETTINGS = {
+    'SCHEMA_PATH_FUNC': 'online_library.views.schema_view',  # Replace with your schema view path
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
