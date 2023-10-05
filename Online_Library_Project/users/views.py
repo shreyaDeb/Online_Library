@@ -39,3 +39,7 @@ def make_book_request(request):
     else:
         form = BookRequestForm()
     return render(request, "users/make_book_request.html", {"form": form})
+
+from drf_spectacular.views import SpectacularAPIView
+class APISchemaView(SpectacularAPIView):
+    pass

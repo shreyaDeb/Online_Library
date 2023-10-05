@@ -13,3 +13,7 @@ def admin_employee_dashboard(request):
     book_requests = BookRequest.objects.all()
     context = {"book_requests": book_requests}
     return render(request, "employee_dashboard/admin_employee_dashboard.html", context)
+
+from drf_spectacular.views import SpectacularAPIView
+class APISchemaView(SpectacularAPIView):
+    pass

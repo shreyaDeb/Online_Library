@@ -22,3 +22,7 @@ def user_login(request):
     else:
         form = AuthenticationForm()
     return render(request, "login_app/login.html", {"form": form})
+
+from drf_spectacular.views import SpectacularAPIView
+class APISchemaView(SpectacularAPIView):
+    pass

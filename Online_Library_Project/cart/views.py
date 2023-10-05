@@ -37,3 +37,7 @@ def remove_from_cart(request, cart_item_id):
     cart_item.delete()
     messages.success(request, "Book removed from your cart.")
     return redirect("view_cart")
+
+from drf_spectacular.views import SpectacularAPIView
+class APISchemaView(SpectacularAPIView):
+    pass

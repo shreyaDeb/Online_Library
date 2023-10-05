@@ -1,4 +1,6 @@
 from django.shortcuts import redirect, render
+from drf_spectacular.views import SpectacularAPIView
+
 
 from .forms import ChapterForm  # Import the form
 
@@ -16,3 +18,6 @@ def add_chapters(request):
         form = ChapterForm()
         context = {"form": form}
         return render(request, "add_chapters/add_chapters.html", context)
+
+class APISchemaView(SpectacularAPIView):
+    pass

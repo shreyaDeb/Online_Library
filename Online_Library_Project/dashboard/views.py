@@ -12,3 +12,8 @@ def user_dashboard(request):
         "user_dashboard.html",
         {"user": user, "rented_books": rented_books, "past_rentals": past_rentals},
     )
+
+
+from drf_spectacular.views import SpectacularAPIView
+class APISchemaView(SpectacularAPIView):
+    pass
