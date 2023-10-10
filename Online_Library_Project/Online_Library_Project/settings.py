@@ -139,3 +139,9 @@ SPECTACULAR_SETTINGS = {
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Your API Documentation Title',
+    'DESCRIPTION': 'Your API Description',
+    'VERSION': '1.0.0',
+}

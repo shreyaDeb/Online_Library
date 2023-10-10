@@ -1,16 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path  # Import include
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
-from home.views import APISchemaView  # Import your schema view
-from add_chapters.views import APISchemaView
-from book_logic.views import APISchemaView
-from books.views import APISchemaView
-from books_list.views import APISchemaView
-from cart.views import APISchemaView
-from dashboard.views import APISchemaView
-from employee_dashboard.views import APISchemaView
-from login_app.views import APISchemaView
-from users.views import APISchemaView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -23,5 +14,7 @@ urlpatterns = [
     path("", include("dashboard.urls")),  # Include dashboard app URLs
     path("", include("employee_dashboard.urls")),  # Include employee_dashboard app URLs
     path("", include("add_chapters.urls")),  # Include add_chapters app URLs
-    path("api/schema/", APISchemaView.as_view(), name="api-schema"),
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 ]

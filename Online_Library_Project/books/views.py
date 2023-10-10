@@ -1,7 +1,6 @@
 # Create your views here.
 from django.shortcuts import get_object_or_404, render
 from rest_framework import generics
-
 from cart.models import CartItem
 
 from .models import Book
@@ -19,7 +18,3 @@ def book_detail(request, book_id):
 class BookList(generics.ListCreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-
-from drf_spectacular.views import SpectacularAPIView
-class APISchemaView(SpectacularAPIView):
-    pass

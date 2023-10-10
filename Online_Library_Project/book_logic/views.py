@@ -36,6 +36,3 @@ def extend_rental(request, rental_id):
         messages.success(request, "Rental extended for 7 days.")
     return redirect("dashboard")  # Redirect to the user's dashboard
     
-from drf_spectacular.views import SpectacularAPIView
-class APISchemaView(SpectacularAPIView):
-    pass
