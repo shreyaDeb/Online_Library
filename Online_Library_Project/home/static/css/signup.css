@@ -1,0 +1,67 @@
+/* Reset some default browser styles */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: 10px;
+    padding: 10px;
+}
+
+/* Style the navigation bar */
+header {
+    background-image: url('/static/images/nav.png'); /* Add the image path */
+    background-size: cover; /* Cover the entire header with the background image */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    background-position: center center; /* Center the background image horizontally and vertically */
+    color: white; /* Set text color */
+    display: flex; /* Use flexbox layout */
+    justify-content: space-between; /* Space out logo and navigation links */
+    align-items: center; /* Vertically align the content */
+    padding: 60px 60px; /* Add padding for spacing */
+}
+
+.logo {
+    font-size: 30 px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+}
+
+nav li {
+    display: inline-block;
+    list-style: none;
+    padding: 0px 20px;
+}
+
+nav li a {
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Center the container both horizontally and vertically */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 75vh; /* 100% of the viewport height */
+}
+
+/* Additional styles for the form elements */
+.container form {
+    background-color: #f4f4f4; /* Set a background color for the form */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.container form button {
+    margin-top: 10px; /* Add some spacing between the form elements */
+}

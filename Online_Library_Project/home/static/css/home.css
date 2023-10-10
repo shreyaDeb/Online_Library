@@ -1,0 +1,45 @@
+/* Reset some default browser styles */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: 10px;
+    padding: 10px;
+}
+
+/* Style the navigation bar */
+header {
+    background-image: url('/static/images/nav.png'); /* Add the image path */
+    background-size: cover; /* Cover the entire header with the background image */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    background-position: center center; /* Center the background image horizontally and vertically */
+    color: white; /* Set text color */
+    display: flex; /* Use flexbox layout */
+    justify-content: space-between; /* Space out logo and navigation links */
+    align-items: center; /* Vertically align the content */
+    padding: 60px 60px; /* Add padding for spacing */
+}
+
+.logo {
+    font-size: 30 px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+}
+
+nav li {
+    display: inline-block;
+    list-style: none;
+    padding: 0px 20px;
+}
+
+nav li a {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}

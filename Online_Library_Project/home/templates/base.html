@@ -9,10 +9,12 @@
 <body>
     <nav>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'book_list' %}"></a>Books</li>            <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Contact</a></li>
+            <li><a href="{% url 'user_login' %}"></a>Login</li>
+            <li><a href="{% url 'schema' %}"></a></li>
         </ul>
     </nav>
 </body>

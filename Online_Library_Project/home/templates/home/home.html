@@ -1,20 +1,30 @@
 <!-- home/templates/home/home.html -->
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <title>Online Library - Home</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
+        <div class="logo">
+            <h1>ONLIB</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'book_list' %}">Books</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="{% url 'user_login' %}">Login</a></li>
+                <li><a href="{% url 'schema' %}">Documentation</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <h1>Welcome to the Online Library</h1>
     <h2>Top 10 Most Viewed Books</h2>
     <div class="book-list">
