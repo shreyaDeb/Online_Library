@@ -1,6 +1,8 @@
-from django.contrib.auth import authenticate, login  # Import authenticate
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import redirect, render
+from django.contrib.auth.views import LogoutView
+from django.urls import reverse_lazy
 
 
 def user_login(request):
@@ -18,7 +20,10 @@ def user_login(request):
                 if user.is_staff:
                     return redirect("employee_dashboard")
                 else:
-                    return redirect("dashboard")
+                    return redirect("user_dashboard")
     else:
         form = AuthenticationForm()
     return render(request, "login_app/login.html", {"form": form})
+
+class CustomLogoutView(LogoutView):
+    next_page = reverse_lazy('home')
