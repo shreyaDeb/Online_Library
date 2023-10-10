@@ -1,11 +1,43 @@
 <!-- books/templates/books/book_detail.html -->
 <!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{{ book.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
 </head>
 <body>
+
+    <header>
+        <div class="logo">
+            <h1>ONLIB</h1>
+        </div>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'book_list' %}">Books</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="{% url 'user_dashboard' %}">User: {{ user.username }}</a></li>
+                    <li><a href="{% url 'schema' %}">Documentation</a></li>
+                {% else %}
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'book_list' %}">Books</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="{% url 'user_login' %}">Login</a></li>
+                        <li><a href="{% url 'schema' %}">Documentation</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
     <h1>{{ book.title }}</h1>
     <img src="{{ book.cover_image.url }}" alt="{{ book.title }} Cover">
     <p>Author: {{ book.author }}</p>

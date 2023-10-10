@@ -14,13 +14,23 @@
         </div>
         <nav>
             <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'book_list' %}">Books</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="{% url 'user_login' %}">Login</a></li>
-                <li><a href="{% url 'schema' %}">Documentation</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'book_list' %}">Books</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="{% url 'user_dashboard' %}">User: {{ user.username }}</a></li>
+                    <li><a href="{% url 'schema' %}">Documentation</a></li>
+                {% else %}
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'book_list' %}">Books</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="{% url 'user_login' %}">Login</a></li>
+                        <li><a href="{% url 'schema' %}">Documentation</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>

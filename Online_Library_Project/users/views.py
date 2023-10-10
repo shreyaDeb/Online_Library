@@ -26,7 +26,7 @@ def user_signup(request):
 def user_dashboard(request):
     user = request.user
     # Implement user dashboard logic here
-    return render(request, "users/user_dashboard.html", {"user": user})
+    return render(request, "user_dashboard.html", {"user": user})
 
 
 def make_book_request(request):

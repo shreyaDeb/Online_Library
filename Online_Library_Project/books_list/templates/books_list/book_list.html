@@ -1,9 +1,40 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html>
 <head>
     <title>Book List</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <h1>ONLIB</h1>
+        </div>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'book_list' %}">Books</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="{% url 'user_dashboard' %}">User: {{ user.username }}</a></li>
+                    <li><a href="{% url 'schema' %}">Documentation</a></li>
+                {% else %}
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'book_list' %}">Books</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="{% url 'user_login' %}">Login</a></li>
+                        <li><a href="{% url 'schema' %}">Documentation</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
     <h1>Book List</h1>
     <ul>
         {% for book in books %}
